@@ -1,0 +1,200 @@
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Ethereum Forum</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/8.5/styles/monokai_sublime.min.css">
+        <link href="https://cdn.bootcss.com/magnific-popup.js/1.0.0/magnific-popup.min.css" rel="stylesheet">
+        <!-- <link rel="stylesheet" type="text/css" href="app.css"> -->
+    </head>
+    <body class="home-template">
+
+        <!-- start header -->
+        <header class="main-header"
+                style="background-image: url(http://static.ghostchina.com/image/6/d1/fcb3879e14429d75833a461572e64.jpg)">
+        </header>
+        <!-- end header -->
+
+        <!-- start navigation -->
+        <nav class="main-navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="navbar-header">
+                                <span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu">
+                                <span class="sr-only">Toggle navigation</span>
+                                <i class="fa fa-bars"></i>
+                                </span>
+                        </div>
+                        <div class="collapse navbar-collapse" id="main-menu">
+                            <ul class="menu">
+                                <li class="nav-current" role="presentation"><a href="/">Forum</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- end navigation -->
+
+
+        <!-- start site's main content area -->
+        <section class="content-wrap">
+            <div class="container">
+                <div class="row">
+
+                    <main id="question-list" class="col-md-8 main-content">
+
+                        <!-- <nav class="pagination" role="navigation">
+                            <span class="page-number">第 1 页 ⁄ 共 9 页</span>
+                            <a class="older-posts" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+                        </nav> -->
+
+
+                    </main>
+
+                    <aside class="col-md-4 sidebar">
+
+                        <div id="user-info-container" class="widget" style="display: block;">
+                            <h4 class="title">User Info</h4>
+                            <div class="content community">
+                                <div id="user-avatar"></div>
+                                <div id="username"></div>
+                                <div id="user-owned-tokens"></div>
+                                <div id="user-questions-number"></div>
+                                <div id="user-answers-number"></div>
+                            </div>
+                        </div>
+
+                        <div id="login-container" class="widget" style="display: none;">
+                            <h4 class="title">Login</h4>
+                            <div class="content community">
+                                <input type="text" id="user-login-address" class="col-sm-12" placeholder="Enter address" />
+                                <input type="text" id="user-login-password" class="col-sm-12" placeholder="Enter password" style="margin-top: 10px;"/>
+                                <div>
+                                  <button onclick="login()" class="btn btn-primary" style="margin-top: 10px;">Login</button>
+                                  <button onclick="toggleLoginBox()" class="btn btn-primary" style="margin-top: 10px;">Sign up now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="register-container" class="widget" style="display: none;">
+                            <h4 class="title">Register</h4>
+                            <div class="content community">
+                              <input type="text" id="user-register-address" class="col-sm-12" placeholder="Enter address" />
+                              <input type="text" id="user-register-username" class="col-sm-12" placeholder="Enter user name" style="margin-top: 10px;"/>
+                              <input type="text" id="user-register-password" class="col-sm-12" placeholder="Enter password" style="margin-top: 10px;"/>
+                              <div>
+                                <button onclick="register()" class="btn btn-primary" style="margin-top: 10px;">Register</button>
+                                <button onclick="toggleLoginBox()" class="btn btn-primary" style="margin-top: 10px;">Login now</button>
+                              </div>
+                            </div>
+                        </div>
+
+                        <div id="ask-question-container" class="widget" style="display: none;">
+                            <h4 class="title">Publish New Question</h4>
+                            <div class="content community">
+                              <button class="btn btn-primary" style="margin-top: 10px;" data-toggle="modal" data-target="#postQuestionModal">New Question</button>
+                            </div>
+                        </div>
+
+                        <div id="buy-tokens-container" class="widget" style="display: none;">
+                            <h4 class="title">Buy Tokens</h4>
+                            <div class="content community">
+                                <div>Tokens to buy</div>
+                                <input id="buy" class="col-sm-12" type="text"/>
+                                <div id="buy-msg"></div>
+                                <button class="btn btn-primary" style="margin-top: 10px;" onclick="buyTokens()">buy</button>
+                            </div>
+                        </div>
+
+                        <div class="widget">
+                            <h4 class="title">Token Stats</h4>
+                            <div class="row">
+                              <div class="table-responsive">
+                                <table class="table table-bordered">
+                                  <tr>
+                                    <td>Tokens For Sale</td>
+                                    <td id="tokens-total"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Tokens Sold</td>
+                                    <td id="tokens-sold"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Price Per Token</td>
+                                    <td id="token-cost"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Balance in the contract</td>
+                                    <td id="contract-balance"></td>
+                                  </tr>
+                                </table>
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="widget">
+                            <h4 class="title">Lookup User Info</h4>
+                            <div class="content community">
+                              <input type="text" id="user-info" class="col-sm-12" placeholder="Enter the voter address" />
+                              <button onclick="lookupUserInfo()" class="btn btn-primary" style="margin-top: 10px;">Lookup</button>
+                              <div class="voter-details row text-left">
+                                <div id="tokens-bought" class="margin-top-3 col-md-12"></div>
+                              </div>
+                            </div>
+                        </div>
+
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+        <div class="modal fade" id="postQuestionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                  &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                  创建问题
+                </h4>
+              </div>
+              <div class="modal-body">
+                <div>
+                  <div>Your Question Title</div>
+                  <input id="question-title" type="text" class="col-sm-12" placeholder="Enter your question title"></input>
+                </div>
+                <div>
+                  <div>Your Question</div>
+                  <textarea id="question-content" type="text" class="col-sm-12" placeholder="Enter your question"></textarea>
+                </div>
+                <div>
+                  <div>Questioner Reward</div>
+                  <input id="question-reward" type="text" class="col-sm-12"/>
+                </div>
+              </div>
+              <div class="modal-footer" style="margin-top: 60px;">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary" onclick="askQuestionWithoutGas()">
+                  提交
+                </button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal -->
+
+    </body>
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script> -->
+    <script src="app.js"></script>
+</html>

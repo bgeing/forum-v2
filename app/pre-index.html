@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ethereum Forum DApp</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body class="container">
+  <h1>Ethereum Forum</h1>
+  <div id="total-number-container">
+
+  </div>
+  <div id="puzzle-input-container" class="table-responsive" style="display: flex; justify-content: center;">
+    
+  </div>
+
+  <div id="question-list">
+
+  </div>
+
+  <div id="ask-question-container" style="margin-top: 50px;">
+    <h2>Ask Question</h2>
+    <div>
+      <div>Your Question Title</div>
+      <textarea id="question-title" class="form-control" placeholder="Enter your question title"></textarea>
+    </div>
+    <div>
+      <div>Your Question</div>
+      <textarea id="question-content" class="form-control" placeholder="Enter your question"></textarea>
+    </div>
+    <div>
+      <div>Questioner Reward</div>
+      <input id="question-reward" class="form-control"/>
+    </div>
+    <div>
+      <div>Questioner Address</div>
+      <input id="questioner-address" class="form-control"/>
+    </div>
+    <button class="btn btn-primary" style="margin-top: 10px;" onclick="ask()">Ask</button>
+  </div>
+
+  <div id="answer-question-container" style="margin-top: 50px">
+    <h2>Answer Question</h2>
+    <div>
+      <div>Your Answer</div>
+      <textarea id="answer-content" class="form-control" placeholder="Enter your answer"></textarea>
+    </div>
+    <div>
+      <div>Question Id</div>
+      <input id="question-to-answer-id" class="form-control"/>
+    </div>
+    <div>
+      <div>Answerer Address</div>
+      <input id="answerer-address" class="form-control"/>
+    </div>
+    <button class="btn btn-primary" style="margin-top: 10px;" onclick="answer()">Answer</button>
+  </div>
+
+  <div style="margin-top: 50px;">
+    <h2>Question List</h2>
+    <div id="question"></div>
+    <div id="question-id"></div>
+    <h2>Answer</h2>
+    <div id="answer"></div>
+    <div id="answer-id"></div>
+    <div id="question-id-1"></div>
+    <button class="btn btn-primary" style="margin-top: 10px;" onclick="setAsBestAnswer()">Set as best answer</button>
+  </div>
+
+  <div id="user-container" style="margin-top: 50px;">
+    <h2>Buy Tokens</h2>
+    <div>Address</div>
+    <input id="user-address" class="form-control" />
+    <div>Token to buy</div>
+    <input id="buy" class="form-control" />
+    <div id="buy-msg"></div>
+    <button class="btn btn-primary" style="margin-top: 10px;" onclick="buyTokens()">buy</button>
+  </div>
+
+  <div id="token-container" class="col-sm-offset-1 col-sm-4 margin-top-3">
+    <div class="row">
+      <h2>Token Stats</h2>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr>
+            <td>Tokens For Sale</td>
+            <td id="tokens-total"></td>
+          </tr>
+          <tr>
+            <td>Tokens Sold</td>
+            <td id="tokens-sold"></td>
+          </tr>
+          <tr>
+            <td>Price Per Token</td>
+            <td id="token-cost"></td>
+          </tr>
+          <tr>
+            <td>Balance in the contract</td>
+            <td id="contract-balance"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="row margin-top-3">
+        <h2>Lookup User Info</h2>
+        <div class="col-sm-12">
+          <input type="text" id="user-info", class="col-sm-8" placeholder="Enter the voter address" />&nbsp;
+          <a href="#" onclick="lookupUserInfo()" class="btn btn-primary">Lookup</a>
+          <div class="voter-details row text-left">
+            <div id="tokens-bought" class="margin-top-3 col-md-12"></div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <!-- <input type="text" id="candidate" />
+  <a href="#" onclick="voteForCandidate()" class="btn btn-primary">Vote</a> -->
+</body>
+<!-- <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="app.js"></script>
+</html>
